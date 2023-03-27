@@ -1,9 +1,9 @@
-import os
-import cv2
 import pandas as pd
 
 from abc import ABC
 from abc import abstractmethod
+
+from Decorators.Timer import Timer
 
 class CroppedImages(ABC):
     """Abstract class for cropping Mini-MIAS images.
@@ -21,9 +21,7 @@ class CroppedImages(ABC):
         The cropping resolution
     Dataframe : pd.DataFrame
         Dataframe that contains the cropping data for each image
-    _Shape : int. Default is 224
-            Resolution of the crop
-            
+
     Methods
     -------
     CropMIAS() -> None:
@@ -44,15 +42,16 @@ class CroppedImages(ABC):
           Folder_store : str,
           Resolution : int,
           Dataframe : pd.DataFrame,
-          Shape : int = 224
         ) -> None:
        
       self._Folder = Folder;
       self._Folder_store = Folder_store;
       self._Resolution = Resolution;
       self._Dataframe = Dataframe;
-      self._Shape = Shape;
 
+      self._Dataframe = pd.read_csv(self._Dataframe)
+
+    @Timer.timer
     @abstractmethod
     def Crop(self) -> None:
       """

@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import cv2 
 
 from ImageCropper import ImageCropper
 
@@ -84,6 +85,18 @@ class ImageCropperCoord(ImageCropper):
         
         # * Obtaining the center
         Image_center = (Shape / 2);
+        
+        # * Add a 100-pixel padding of black color
+        Padding = 100
+        Image = cv2.copyMakeBorder(
+            Image, 
+            Padding, 
+            Padding, 
+            Padding, 
+            Padding, 
+            cv2.BORDER_CONSTANT, 
+            value = 0
+        );
 
         # * Obtaining dimension
         Height_Y = Image.shape[0];
@@ -93,14 +106,15 @@ class ImageCropperCoord(ImageCropper):
         Y_size = Dataframe.iloc[Index - 1, Y_column];
 
         # * Extract the value of X and Y of each image
-        XDL = X_size - Image_center;
-        XDM = X_size + Image_center;
+        XDL = X_size - Image_center + 100;
+        XDM = X_size + Image_center + 100;
 
         # * Extract the value of X and Y of each image
-        YDL = Height_Y - Y_size - Image_center;
-        YDM = Height_Y - Y_size + Image_center;
+        YDL = Height_Y - Y_size - Image_center - 100;
+        YDM = Height_Y - Y_size + Image_center - 100;
 
         # * Cropped image
-        Cropped_Image = Image[int(YDL):int(YDM), int(XDL):int(XDM)];
+        Cropped_Image = Image[int(YDL):int(YDM), 
+                              int(XDL):int(XDM)];
         
         return Cropped_Image

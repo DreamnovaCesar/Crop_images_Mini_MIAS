@@ -21,8 +21,6 @@ class CroppedImagesTumor(CroppedImages):
         The desired resolution of the cropped images.
     _Dataframe : pandas.DataFrame
         The DataFrame containing information about the images, such as their names, severity, and coordinates.
-    _Shape : int. Default is 224
-            Resolution of the crop
 
     Attributes
     ----------
@@ -44,7 +42,6 @@ class CroppedImagesTumor(CroppedImages):
         _Folder_store : str,
         _Resolution : int,
         _Dataframe : pd.DataFrame,
-        _Shape : int
     ) -> None:
         """
         Initializes the CroppedImages object.
@@ -59,8 +56,6 @@ class CroppedImagesTumor(CroppedImages):
             The desired resolution of the cropped images.
         _Dataframe : pandas.DataFrame
             The DataFrame containing information about the images, such as their names, severity, and coordinates.
-        _Shape : int. Default is 224
-            Resolution of the crop
 
         Returns
         -------
@@ -72,17 +67,13 @@ class CroppedImagesTumor(CroppedImages):
             _Folder_store,
             _Resolution,
             _Dataframe,
-            _Shape
         );
 
         # * Set the label value for Benign and malignant images
         self._Benign_label = 2;
         self._Malignant_label = 2;
     
-    def CropMIAS(self) -> None:
-    
-        # * Change the current working directory to the folder containing the images
-        os.chdir(self._Folder)
+    def Crop(self) -> None:
 
         # * Create a string of asterisks for formatting purposes
         Asterisks : int = 100;
@@ -138,7 +129,7 @@ class CroppedImagesTumor(CroppedImages):
                             Image, 
                             X_column,
                             Y_column,
-                            self._Shape
+                            self._Resolution
                         )
 
                         New_name_filename = f"{Filename}_Benign_cropped{Format}"
@@ -176,7 +167,7 @@ class CroppedImagesTumor(CroppedImages):
                             Image, 
                             X_column,
                             Y_column,
-                            self._Shape
+                            self._Resolution
                         );
 
                         New_name_filename = f"{Filename}_Malignant_cropped{Format}";
