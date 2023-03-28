@@ -52,6 +52,14 @@ You'll need to use the main.py to run the script
 ```python
 python main.py
 ```
+
+## Instance
+
+This is an instance of the algorithm for showing the cropped images. This is the `CroppedImagesNormalGrid` algorithm; for this example, you can use
+the `Test_Grid.py` script to run it.
+
+![Alt Text](Crop_images_normal_grid.png)
+
 ## Co-authors
 
 - Dr. Hermilo Sanchez Cruz
