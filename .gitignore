@@ -160,7 +160,3 @@ cython_debug/
 #.idea/
 
 #Codes
-
-app\src\Layer_application\EulerExtractor.py
-app\src\Layer_application\EulerExtractorImage.py
-app\src\Layer_application\EulerExtractorObject.py
