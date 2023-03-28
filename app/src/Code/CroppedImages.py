@@ -3,8 +3,6 @@ import pandas as pd
 from abc import ABC
 from abc import abstractmethod
 
-from Decorators.Timer import Timer
-
 class CroppedImages(ABC):
     """Abstract class for cropping Mini-MIAS images.
 
@@ -33,6 +31,24 @@ class CroppedImages(ABC):
     This class is intended to be subclassed, and the CropMIAS method should be implemented by the subclass to handle
     the specific image cropping logic.
 
+    This code defines an abstract base class called CroppedImages that is intended to be subclassed to implement specific image cropping logic for Mini-MIAS images. 
+    The class has several attributes, including the folder path for the downloaded images, the folder path to store the cropped images, the cropping resolution, 
+    and a Pandas DataFrame that contains the cropping data for each image.
+
+    The class also defines an abstract method called Crop() that must be implemented by any subclass of CroppedImages. 
+    This method handles the specific image cropping logic and is called when cropping is enabled, 
+    cropping the Mini-MIAS images and saving them to the specified folder.
+
+    The __init__ method initializes the attributes of the class by assigning the values passed as arguments to the corresponding attributes. 
+    The pd.read_csv method is used to read the DataFrame from the file specified in the Dataframe attribute.
+
+    The class is defined as an abstract class using the ABC module and the abstractmethod decorator is used to declare the Crop() 
+    method as an abstract method that must be implemented by any subclass of CroppedImages. Any subclass of CroppedImages that does not implement 
+    the abstract method Crop() will also be considered abstract and will not be allowed to be instantiated.
+
+    Overall, this code provides a framework for implementing image cropping logic for Mini-MIAS images by defining a base class with necessary
+    attributes and an abstract method that must be implemented by any subclass of the base class.
+
     """
 
     # * Initializing (Constructor)
@@ -50,8 +66,7 @@ class CroppedImages(ABC):
       self._Dataframe = Dataframe;
 
       self._Dataframe = pd.read_csv(self._Dataframe)
-
-    @Timer.timer
+    
     @abstractmethod
     def Crop(self) -> None:
       """

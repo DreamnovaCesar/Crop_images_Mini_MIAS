@@ -7,6 +7,8 @@ from CroppedImages import CroppedImages
 
 from ImageCropperCoord import ImageCropperCoord
 
+from Decorators.Timer import Timer
+
 class CroppedImagesMalignant(CroppedImages):
     """
     A class that crops images from a specific folder based on the provided DataFrame.
@@ -70,6 +72,7 @@ class CroppedImagesMalignant(CroppedImages):
         # * Set the label value for malignant images
         self._Malignant_label = 1;
     
+    @Timer.timer
     def Crop(self) -> None:
 
         # * Create a string of asterisks for formatting purposes

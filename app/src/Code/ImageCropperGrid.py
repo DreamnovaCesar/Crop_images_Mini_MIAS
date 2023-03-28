@@ -13,7 +13,8 @@ class ImageCropperGrid(ImageCropper):
         Crop an input image into a grid of smaller images.
     
     """
-
+    
+    @staticmethod
     def crop_image(
         Image : np.ndarray, 
         Grid_size : int

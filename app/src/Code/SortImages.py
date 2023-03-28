@@ -37,7 +37,7 @@ class SortImages(object):
         None
         """
         self.Folder = Folder; 
-
+    
     @staticmethod
     def sort_images(Folder_path: str) -> Tuple[list[str], int]: 
         """

@@ -7,8 +7,6 @@ class ImageCropper(ABC):
     Abstract base class for cropping an input image into a list of smaller images.
     """
 
-    @property
-    @staticmethod
     @abstractmethod
     def crop_image():
         """

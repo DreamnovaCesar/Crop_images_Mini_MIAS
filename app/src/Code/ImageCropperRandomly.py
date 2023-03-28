@@ -15,6 +15,7 @@ class ImageCropperRandomly(ImageCropper):
     
     """
 
+    @staticmethod
     def crop_image(
         Image : np.ndarray, 
         Crop_size : int,

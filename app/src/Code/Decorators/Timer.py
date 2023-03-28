@@ -44,13 +44,13 @@ class Timer(object):
         """
         @wraps(func)  
         def wrapper(*args, **kwargs):
-            start_time = time.time();
-            result = func(*args, **kwargs);
-            end_time = time.time();
+            Start_time = time.time();
+            Result = func(*args, **kwargs);
+            End_time = time.time();
             print("\n");
             print("*" * 60);
-            print('Function {} executed in {:.4f}'.format(func.__name__, end_time - start_time));
+            print('Function {} executed in {:.4f}'.format(func.__name__, End_time - Start_time));
             print("*" * 60);
             print("\n");
-            return result
+            return Result
         return wrapper

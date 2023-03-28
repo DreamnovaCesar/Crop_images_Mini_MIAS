@@ -7,6 +7,8 @@ from CroppedImages import CroppedImages
 
 from ImageCropperCoord import ImageCropperCoord
 
+from Decorators.Timer import Timer
+
 class CroppedImagesTumor(CroppedImages):
     """
     A class that crops images from a specific folder based on the provided DataFrame.
@@ -70,9 +72,10 @@ class CroppedImagesTumor(CroppedImages):
         );
 
         # * Set the label value for Benign and malignant images
-        self._Benign_label = 2;
-        self._Malignant_label = 2;
+        self._Malignant_label = 0;
+        self._Benign_label = 1;
     
+    @Timer.timer
     def Crop(self) -> None:
 
         # * Create a string of asterisks for formatting purposes

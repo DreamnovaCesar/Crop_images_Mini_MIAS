@@ -6,7 +6,8 @@ from SortImages import SortImages
 from CroppedImages import CroppedImages
 
 from ImageCropperRandomly import ImageCropperRandomly
-from ImageViewer import ImageViewer
+
+from Decorators.Timer import Timer
 
 class CroppedImagesNormalRandom(CroppedImages):
     """
@@ -76,6 +77,7 @@ class CroppedImagesNormalRandom(CroppedImages):
         # * Set the label value for normal images
         self._Normal_label = 2;
     
+    @Timer.timer
     def Crop(self) -> None:
         """
         Crops the images based on the provided DataFrame.

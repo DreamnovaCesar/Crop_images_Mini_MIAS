@@ -7,6 +7,8 @@ from CroppedImages import CroppedImages
 
 from ImageCropperCoord import ImageCropperCoord
 
+from Decorators.Timer import Timer
+
 class CroppedImagesBenign(CroppedImages):
     """
     A class that crops images from a specific folder based on the provided DataFrame.
@@ -70,6 +72,7 @@ class CroppedImagesBenign(CroppedImages):
         # * Set the label value for benign images
         self._Benign_label = 0;
     
+    @Timer.timer
     def Crop(self) -> None:
 
         # * Create a string of asterisks for formatting purposes

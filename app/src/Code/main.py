@@ -1,5 +1,6 @@
 
 import os
+from Decorators.Timer import Timer
 from CroppedImagesNormalGrid import CroppedImagesNormalGrid
 from CroppedImagesNormalRandom import CroppedImagesNormalRandom
 from CroppedImagesTumor import CroppedImagesTumor
@@ -8,7 +9,7 @@ from CroppedImagesMalignant import CroppedImagesMalignant
 
 Resolution = 224;
 
-def Test_crop_grid():
+def Test_crop_grid() -> None:
     
     global Resolution
     # * Create a new instance of the CroppedImagesNormal class
@@ -24,7 +25,7 @@ def Test_crop_grid():
     # * Check if the expected output is equal to the actual output
     assert os.path.exists(r'app\src\data\Crop_Normal_Grid') is True;
 
-def Test_crop_random():
+def Test_crop_random() -> None:
 
     global Resolution
     # * Create a new instance of the CroppedImagesNormal class
@@ -40,7 +41,7 @@ def Test_crop_random():
     # * Check if the expected output is equal to the actual output
     assert os.path.exists(r'app\src\data\Crop_Normal_Random') is True;
 
-def Test_crop_tumor():
+def Test_crop_tumor() -> None:
 
     global Resolution
     # * Create a new instance of the CroppedImagesNormal class
@@ -56,7 +57,7 @@ def Test_crop_tumor():
     # * Check if the expected output is equal to the actual output
     assert os.path.exists(r'app\src\data\Crop_Tumor') is True;
 
-def Test_crop_benign():
+def Test_crop_benign() -> None:
 
     global Resolution
     # * Create a new instance of the CroppedImagesNormal class
@@ -72,7 +73,7 @@ def Test_crop_benign():
     # * Check if the expected output is equal to the actual output
     assert os.path.exists(r'app\src\data\Crop_Benign') is True;
 
-def Test_crop_malignant():
+def Test_crop_malignant() -> None:
 
     global Resolution
     # * Create a new instance of the CroppedImagesNormal class
