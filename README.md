@@ -1,6 +1,5 @@
 
 ![Python](https://img.shields.io/badge/python-v3.10+-blue.svg)
-[![Build Status](https://travis-ci.org/anfederico/clairvoyant.svg?branch=master)](https://travis-ci.org/anfederico/clairvoyant)
 ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
 
 <a name="readme-top"></a>
